@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>myAlert</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/myAlert.css">
+	<link rel="stylesheet" type="text/css" href="../css/reset-this-zip.css">
+	<script src="../jslib/jquery.js"></script>
+	<script src="../jslib/iscroll.js"></script>
+	<script src="../myAlert.js"></script>
+	<style type="text/css">
+	#big-banner{
+	  position:fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  min-height: 100%;
+	  background-color: white;
+	}
+	#big-banner a{
+		text-decoration: none;
+	}
+	#big-banner h1{
+	  text-align: center;
+	  font-weight: 300;
+	  line-height: 1.15;
+	  font-size: 3.8em;
+	  margin: 7rem 0px 0.3em;
+	  color: rgb(0, 0, 0);
+	}
+	#big-banner p{
+	  text-align: center;
+	  color: rgb(119, 119, 119);
+	  line-height: 1.6;    
+	  font-size: 18px;
+	}
+	#big-banner button{
+	  position: absolute;
+	  right: 35px;
+	  bottom: 60px;
+	}
+</style>
+</head>
+
+<body>
+	<div id= "test">
+		<div id="big-banner">
+	      <h1 style="padding-bottom:30px;">myAlert</h1>
+	      <p style="max-width:75%; margin:auto; position:relative; width:100%; text-align:center; top:100px; font-size:14px;">myAlert is a very simple Js library that can display callout dialogs anywhere on a HTML page. It's very lightweight in its filesize and performance. The lib depends on only two other popular libs which are: jQuery & iscroll, and it is still open to other cool implementations. So, any contribution will be welcome. I hope you like it.</p>
+
+	      <p style="position:relative; top: 150px; text-align:center;">
+	      	<a style="padding:5px 20px;" href="#" id="anchor">show</a>
+    	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var myAlert = new MyAlert();
+	window.onload = function(){
+		$("#anchor").on("click", function(e){
+			myAlert.show({'x':e.pageX, 'y':e.pageY}, {
+				'header': "<em>Hello!</em><br/><small>I am a header</small>",
+				'body': "I am the body of the dialog, so i should be bigger. Yeah, more text here. I can also update me <a>here</a>.",
+				'footer': "footer: goodbye!"
+			});
+		});
+	};
+</script>
+</html>
